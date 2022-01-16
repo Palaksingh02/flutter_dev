@@ -15,6 +15,7 @@ class TV extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
+            padding: EdgeInsets.only(left: 10),
             child: modified_text( text: 'Popular Shows',color: Colors.white,size: 24,),
           ),
           

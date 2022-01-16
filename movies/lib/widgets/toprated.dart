@@ -10,15 +10,16 @@ class TopRatedMovies extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.fromLTRB(2, 5, 0, 0),
+      padding: EdgeInsets.fromLTRB(2, 0, 0, 0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
+            padding: EdgeInsets.only(left: 10),
             child: modified_text( text: 'Top Rated Movies',color: Colors.white,size: 24,),
           ),
           
-          SizedBox(height: 5),
+          SizedBox(height: 10),
           Container(
             height: 270,
             child: ListView.builder(

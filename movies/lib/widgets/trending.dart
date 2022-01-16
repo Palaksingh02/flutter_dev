@@ -15,10 +15,11 @@ class TrendingMovies extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
+            padding: EdgeInsets.only(left: 10),
             child: modified_text( text: 'Trending Movies',color: Colors.white,size: 24,),
           ),
           
-          SizedBox(height: 5),
+          SizedBox(height: 10),
           Container(
             height: 270,
             child: ListView.builder(
@@ -60,7 +61,9 @@ class TrendingMovies extends StatelessWidget {
                             )),
                             ),
                             SizedBox(height:5),
-                            Container(child:modified_text(
+                            Container(
+                              child:modified_text(
+                              
                                   size: 15,
                                   text: trending[index]['title'] != null
                                       ? trending[index]['title']

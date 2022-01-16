@@ -64,7 +64,7 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         backgroundColor: Colors.red[900],
         title: modified_text(
-          text: 'Flutter Movies App',
+          text: 'Movieplex',
           color: Colors.white,
           size: 26,
         ),
