@@ -17,8 +17,8 @@ class MyApp extends StatelessWidget {
       home: Home(),
       debugShowCheckedModeBanner: false,
       color: Colors.black,
-      theme:
-          ThemeData(brightness: Brightness.light, primaryColor: Colors.red[900]),
+      theme: ThemeData(
+          brightness: Brightness.light, primaryColor: Colors.red[900]),
     );
   }
 }
@@ -54,19 +54,25 @@ class _HomeState extends State<Home> {
       tv = tvresult['results'];
     });
 
-    print(trendingmovies);
+    print(tv);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.red.shade100,
-      appBar: AppBar(backgroundColor: Colors.red[900],
-        title: modified_text( text: 'Flutter Movies App',color: Colors.white,size: 26,),
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        backgroundColor: Colors.red[900],
+        title: modified_text(
+          text: 'Flutter Movies App',
+          color: Colors.white,
+          size: 26,
+        ),
       ),
       body: ListView(
         children: [
-          TV(tvshows:tv),
+          TrendingMovies(trending: trendingmovies),
+          TV(tvshows: tv),
           TopRatedMovies(toprated: topratedmovies),
           TrendingMovies(trending: trendingmovies),
         ],

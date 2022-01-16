@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies/description.dart';
 import 'package:movies/utils/text.dart';
 
 class TopRatedMovies extends StatelessWidget {
@@ -14,7 +15,7 @@ class TopRatedMovies extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            child: modified_text( text: 'Top Rated Movies',color: Colors.red.shade900,size: 24,),
+            child: modified_text( text: 'Top Rated Movies',color: Colors.white,size: 24,),
           ),
           
           SizedBox(height: 5),
@@ -26,6 +27,25 @@ class TopRatedMovies extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return InkWell(
                     onTap: (){
+                       Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Description(
+                                      name: toprated[index]['title'],
+                                      bannerurl:
+                                          'https://image.tmdb.org/t/p/w500' +
+                                              toprated[index]['backdrop_path'],
+                                      posterurl:
+                                          'https://image.tmdb.org/t/p/w500' +
+                                              toprated[index]['poster_path'],
+                                      description: toprated[index]['overview'],
+                                      vote: toprated[index]['vote_average']
+                                          .toString(),
+                                      launch_on: toprated[index]
+                                          ['release_date'],
+                                    )));
+
+                    
 
                     },
                     child: Container(
@@ -46,7 +66,7 @@ class TopRatedMovies extends StatelessWidget {
                                   size: 15,
                                   text: toprated[index]['title'] != null
                                       ? toprated[index]['title']
-                                      : 'Loading', color: Colors.red.shade900,),
+                                      : 'Loading',color: Colors.white,),
                             )
                           ],
                         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies/description.dart';
 import 'package:movies/utils/text.dart';
 
 class TrendingMovies extends StatelessWidget {
@@ -14,7 +15,7 @@ class TrendingMovies extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            child: modified_text( text: 'Trending Movies',color: Colors.red.shade900,size: 24,),
+            child: modified_text( text: 'Trending Movies',color: Colors.white,size: 24,),
           ),
           
           SizedBox(height: 5),
@@ -26,6 +27,23 @@ class TrendingMovies extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return InkWell(
                     onTap: (){
+                      Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Description(
+                                      name: trending[index]['title'],
+                                      bannerurl:
+                                          'https://image.tmdb.org/t/p/w500' +
+                                              trending[index]['backdrop_path'],
+                                      posterurl:
+                                          'https://image.tmdb.org/t/p/w500' +
+                                              trending[index]['poster_path'],
+                                      description: trending[index]['overview'],
+                                      vote: trending[index]['vote_average']
+                                          .toString(),
+                                      launch_on: trending[index]
+                                          ['release_date'],
+                                    )));
 
                     },
                     child: Container(
@@ -46,7 +64,7 @@ class TrendingMovies extends StatelessWidget {
                                   size: 15,
                                   text: trending[index]['title'] != null
                                       ? trending[index]['title']
-                                      : 'Loading', color: Colors.red.shade900,),
+                                      : 'Loading', color: Colors.white,),
                             )
                           ],
                         ),

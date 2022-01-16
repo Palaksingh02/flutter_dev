@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies/description.dart';
 import 'package:movies/utils/text.dart';
 
 class TV extends StatelessWidget {
@@ -14,7 +15,7 @@ class TV extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            child: modified_text( text: 'Popular Shows',color: Colors.red.shade900,size: 24,),
+            child: modified_text( text: 'Popular Shows',color: Colors.white,size: 24,),
           ),
           
           SizedBox(height: 10),
@@ -26,6 +27,24 @@ class TV extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return InkWell(
                     onTap: (){
+                       Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Description(
+                                      name: tvshows[index]['original_name'],
+                                      bannerurl:
+                                          'https://image.tmdb.org/t/p/w500' +
+                                              tvshows[index]['backdrop_path'],
+                                      posterurl:
+                                          'https://image.tmdb.org/t/p/w500' +
+                                              tvshows[index]['poster_path'],
+                                      description: tvshows[index]['overview'],
+                                      vote: tvshows[index]['vote_average']
+                                          .toString(),
+                                      launch_on: tvshows[index]
+                                          ['first_air_date'],
+                                    )));
+
 
                     },
                     child: Container(
@@ -49,7 +68,7 @@ class TV extends StatelessWidget {
                                   size: 15,
                                   text: tvshows[index]['original_name'] != null
                                       ? tvshows[index]['original_name']
-                                      : 'Loading', color: Colors.red.shade900,),
+                                      : 'Loading', color: Colors.white,),
                             )
                           ],
                         ),
